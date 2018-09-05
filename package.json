@@ -1,0 +1,19 @@
+{
+  "name": "yelpcamp",
+  "version": "1.0.0",
+  "description": "YelpCamp v1",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wallysonlima/yelpcamp.git"
+  },
+  "author": "Wallyson Lima",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wallysonlima/yelpcamp/issues"
+  },
+  "homepage": "https://github.com/wallysonlima/yelpcamp#readme"
+}
