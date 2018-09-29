@@ -8,6 +8,4 @@
  * @constructor ObjectId
  */
 
-'use strict';
-
-module.exports = require('../driver').get().Decimal128;
+module.exports = require('../drivers').Decimal128;

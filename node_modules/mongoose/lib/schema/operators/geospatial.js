@@ -2,10 +2,8 @@
  * Module requirements.
  */
 
-'use strict';
-
-const castArraysOfNumbers = require('./helpers').castArraysOfNumbers;
-const castToNumber = require('./helpers').castToNumber;
+var castArraysOfNumbers = require('./helpers').castArraysOfNumbers;
+var castToNumber = require('./helpers').castToNumber;
 
 /*!
  * ignore
@@ -16,7 +14,7 @@ exports.cast$near = cast$near;
 exports.cast$within = cast$within;
 
 function cast$near(val) {
-  const SchemaArray = require('../array');
+  var SchemaArray = require('../array');
 
   if (Array.isArray(val)) {
     castArraysOfNumbers(val, this);
@@ -44,7 +42,7 @@ function cast$geometry(val, self) {
       break;
   }
 
-  _castMinMaxDistance(self, val);
+  _castMinMaxDistance(this, val);
 
   return val;
 }
@@ -53,22 +51,22 @@ function cast$within(val) {
   _castMinMaxDistance(this, val);
 
   if (val.$box || val.$polygon) {
-    const type = val.$box ? '$box' : '$polygon';
-    val[type].forEach(arr => {
+    var type = val.$box ? '$box' : '$polygon';
+    val[type].forEach(function(arr) {
       if (!Array.isArray(arr)) {
-        const msg = 'Invalid $within $box argument. '
+        var msg = 'Invalid $within $box argument. '
             + 'Expected an array, received ' + arr;
         throw new TypeError(msg);
       }
-      arr.forEach((v, i) => {
+      arr.forEach(function(v, i) {
         arr[i] = castToNumber.call(this, v);
       });
     });
   } else if (val.$center || val.$centerSphere) {
-    const type = val.$center ? '$center' : '$centerSphere';
-    val[type].forEach((item, i) => {
+    type = val.$center ? '$center' : '$centerSphere';
+    val[type].forEach(function(item, i) {
       if (Array.isArray(item)) {
-        item.forEach((v, j) => {
+        item.forEach(function(v, j) {
           item[j] = castToNumber.call(this, v);
         });
       } else {
@@ -83,7 +81,7 @@ function cast$within(val) {
 }
 
 function cast$geoIntersects(val) {
-  const geo = val.$geometry;
+  var geo = val.$geometry;
   if (!geo) {
     return;
   }

@@ -13,7 +13,7 @@ co(function*() {
 
   yield topology.addShard([{
     options: {
-      bind_ip: 'localhost', port: 31000, dbpath: `/data/db/31000`, shardsvr: null
+      bind_ip: 'localhost', port: 31000, dbpath: `/data/db/31000`
     }
   }], { replSet: 'rs1' });
 
@@ -29,11 +29,8 @@ co(function*() {
     binary: 'mongos'
   });
 
-  console.log('Start...');
   // Start up topology
   yield topology.start();
-
-  console.log('Started');
 
   // Shard db
   yield topology.enableSharding('test');

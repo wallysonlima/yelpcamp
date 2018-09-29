@@ -3,9 +3,7 @@
  * Module dependencies.
  */
 
-'use strict';
-
-const MongooseError = require('./');
+var MongooseError = require('./');
 
 /*!
  * MissingSchema Error constructor.
@@ -14,7 +12,7 @@ const MongooseError = require('./');
  */
 
 function MissingSchemaError(name) {
-  const msg = 'Schema hasn\'t been registered for model "' + name + '".\n'
+  var msg = 'Schema hasn\'t been registered for model "' + name + '".\n'
           + 'Use mongoose.model(name, schema)';
   MongooseError.call(this, msg);
   this.name = 'MissingSchemaError';

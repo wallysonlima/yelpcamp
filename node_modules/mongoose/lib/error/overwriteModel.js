@@ -3,9 +3,7 @@
  * Module dependencies.
  */
 
-'use strict';
-
-const MongooseError = require('./');
+var MongooseError = require('./');
 
 /*!
  * OverwriteModel Error constructor.

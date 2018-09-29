@@ -1,6 +1,5 @@
 
-'use strict';
-const model = require('./modelA');
+var model = require('./modelA');
 
 exports.home = function(req, res, next) {
   model.find(function(err, docs) {

@@ -2,9 +2,7 @@
  * Module dependencies.
  */
 
-'use strict';
-
-const MongooseError = require('./');
+var MongooseError = require('./');
 
 /**
  * Constructor for errors that happen when a parameter that's expected to be
